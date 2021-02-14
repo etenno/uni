@@ -1,0 +1,104 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  6
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       polyBoundaryMesh;
+    location    "constant/polyMesh";
+    object      boundary;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+10
+(
+    inlet1
+    {
+        type            cyclic;
+        inGroups        1(cyclic);
+        nFaces          400;
+        startFace       205200;
+        matchTolerance  0.0001;
+        transform       unknown;
+        neighbourPatch  outlet1;
+    }
+    inlet2
+    {
+        type            cyclic;
+        inGroups        1(cyclic);
+        nFaces          400;
+        startFace       205600;
+        matchTolerance  0.0001;
+        transform       unknown;
+        neighbourPatch  outlet2;
+    }
+    outlet1
+    {
+        type            cyclic;
+        inGroups        1(cyclic);
+        nFaces          400;
+        startFace       206000;
+        matchTolerance  0.0001;
+        transform       unknown;
+        neighbourPatch  inlet1;
+    }
+    outlet2
+    {
+        type            cyclic;
+        inGroups        1(cyclic);
+        nFaces          400;
+        startFace       206400;
+        matchTolerance  0.0001;
+        transform       unknown;
+        neighbourPatch  inlet2;
+    }
+    fixedWallsTOP
+    {
+        type            wall;
+        inGroups        1(wall);
+        nFaces          3520;
+        startFace       206800;
+    }
+    fixedWallsBOTTOM
+    {
+        type            wall;
+        inGroups        1(wall);
+        nFaces          3520;
+        startFace       210320;
+    }
+    fixedWallsLEFT
+    {
+        type            wall;
+        inGroups        1(wall);
+        nFaces          1280;
+        startFace       213840;
+    }
+    fixedWallsRIGHT
+    {
+        type            wall;
+        inGroups        1(wall);
+        nFaces          1280;
+        startFace       215120;
+    }
+    fixedWallsFIRST
+    {
+        type            wall;
+        inGroups        1(wall);
+        nFaces          400;
+        startFace       216400;
+    }
+    fixedWallsSECOND
+    {
+        type            wall;
+        inGroups        1(wall);
+        nFaces          400;
+        startFace       216800;
+    }
+)
+
+// ************************************************************************* //
